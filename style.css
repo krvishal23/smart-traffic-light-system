@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+h1 {
+    margin-bottom: 30px;
+}
+.lane {
+    display: inline-block;
+    margin: 10px;
+    padding: 20px;
+    background-color: #eee;
+    border-radius: 10px;
+    font-size: 20px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
