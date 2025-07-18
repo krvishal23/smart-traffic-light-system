@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IoT Smart Traffic Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>🚦 Smart Traffic Monitoring System</h1>
+    <div id="lanes"></div>
+
+    <script>
+        function fetchTraffic() {
+            fetch("../backend/fetch_data.php")
+                .then(res => res.json())
+                .then(data => {
+                    let html = "";
+                    for (let i = 1; i <= 4; i++) {
+                        html += `<div class="lane">Lane ${i}: ${data['lane'+i] == 1 ? '🟥 Congested' : '🟩 Clear'}</div>`;
+                    }
+                    document.getElementById('lanes').innerHTML = html;
+                });
+        }
+        setInterval(fetchTraffic, 3000);
+        fetchTraffic();
+    </script>
+</body>
+</html>
